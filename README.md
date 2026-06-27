@@ -21,6 +21,36 @@ go get github.com/apexsudo/common
 | [`pkg/workload`](./pkg/workload) | Composable server with graceful shutdown, gRPC, GraphQL, and custom workload support |
 | [`pkg/graphql/dataloaders`](./pkg/graphql/dataloaders) | Generic batched dataloader constructors for solving N+1 queries in GraphQL resolvers |
 
+## CLI
+
+`cmd/scaffold` is a code-generation CLI for ApexSudo backend services.
+
+### Installation
+
+```bash
+go install github.com/apexsudo/common/cmd/scaffold@latest
+```
+
+### Commands
+
+#### `scaffold db create_table <name>`
+
+Generates a timestamped up/down migration pair that creates a table with standard columns (`id`, `created_at`, `updated_at`, `deleted_at`) and a `deleted_at` index.
+
+```bash
+scaffold db create_table users
+```
+
+#### `scaffold db create_migration <name>`
+
+Generates a blank timestamped up/down migration pair.
+
+```bash
+scaffold db create_migration add_email_to_users
+```
+
+Both commands walk up from the current working directory to locate `internal/storage/database/migration/scripts` and fail with a clear error if it cannot be found. The target project must have `github.com/golang-migrate/migrate/v4/cmd/migrate` registered as a Go tool (`go get -tool ...`).
+
 ## Development
 
 ```bash
