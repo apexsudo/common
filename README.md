@@ -18,6 +18,7 @@ go get github.com/apexsudo/common
 |---------|-------------|
 | [`pkg/config`](./pkg/config) | Generic config loader — reads JSON/TOML/YAML files into typed structs with env-var override support |
 | [`pkg/workload`](./pkg/workload) | Composable server with graceful shutdown, gRPC, GraphQL, and custom workload support |
+| [`pkg/graphql/dataloaders`](./pkg/graphql/dataloaders) | Generic batched dataloader constructors for solving N+1 queries in GraphQL resolvers |
 
 ## Development
 
