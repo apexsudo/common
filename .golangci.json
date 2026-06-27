@@ -1,0 +1,120 @@
+{
+  "version": "2",
+  "linters": {
+    "enable": [
+      "asciicheck",
+      "bodyclose",
+      "canonicalheader",
+      "contextcheck",
+      "cyclop",
+      "decorder",
+      "dogsled",
+      "durationcheck",
+      "errname",
+      "errorlint",
+      "exptostd",
+      "forcetypeassert",
+      "funlen",
+      "gocheckcompilerdirectives",
+      "gochecknoglobals",
+      "gochecknoinits",
+      "gocognit",
+      "goconst",
+      "gocritic",
+      "gocyclo",
+      "godot",
+      "godox",
+      "iface",
+      "importas",
+      "inamedparam",
+      "lll",
+      "misspell",
+      "musttag",
+      "nakedret",
+      "nestif",
+      "nilerr",
+      "nilnesserr",
+      "nilnil",
+      "nlreturn",
+      "noctx",
+      "nolintlint",
+      "nonamedreturns",
+      "nosprintfhostport",
+      "paralleltest",
+      "predeclared",
+      "promlinter",
+      "reassign",
+      "recvcheck",
+      "sloglint",
+      "spancheck",
+      "testableexamples",
+      "testpackage",
+      "thelper",
+      "tparallel",
+      "unconvert",
+      "unparam",
+      "usestdlibvars",
+      "varnamelen",
+      "wastedassign",
+      "whitespace",
+      "wrapcheck"
+    ],
+    "settings": {
+      "varnamelen": {
+        "ignore-decls": [
+          "w http.ResponseWriter",
+          "r *http.Request",
+          "t *testing.T",
+          "tb testing.TB",
+          "id string"
+        ]
+      }
+    },
+    "exclusions": {
+      "paths": [".*/generated/.*", "pkg/otel/database/internal/tracing"],
+      "rules": [
+        {
+          "path": "_test.go",
+          "linters": [
+            "wrapcheck",
+            "funlen",
+            "mnd"
+          ]
+        },
+        {
+          "path": "graph/schema.resolvers.go",
+          "linters": [
+            "wrapcheck",
+            "lll"
+          ]
+        },
+        {
+          "path": "graph/types.resolvers.go",
+          "linters": [
+            "wrapcheck",
+            "lll"
+          ]
+        },
+        {
+          "path": "internal/storage/database/models/*",
+          "linters": [
+            "nilnil"
+          ]
+        }
+      ]
+    }
+  },
+  "formatters": {
+    "enable": [
+      "gofmt",
+      "goimports"
+    ],
+    "settings": {}
+  },
+  "run": {
+    "tests": true,
+    "allow-parallel-runners": true
+  },
+  "issues": {
+  }
+}

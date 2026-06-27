@@ -1,10 +1,5 @@
 on:
   push:
-    branches:
-      - main
-      - develop
-      - beta
-  pull_request:
 
 permissions:
   contents: read
@@ -19,6 +14,6 @@ jobs:
         with:
           go-version-file: go.mod
       - run: go mod download
-      - uses: golangci/golangci-lint-action@v6
+      - uses: golangci/golangci-lint-action@v9
         with:
-          version: v1.64
+          version: latest

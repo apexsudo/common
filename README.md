@@ -16,7 +16,7 @@ go get github.com/apexsudo/common
 
 | Package | Description |
 |---------|-------------|
-| [`pkg/sayhello`](./pkg/sayhello) | Greeting utilities |
+| [`pkg/workload`](./pkg/workload) | Composable server with graceful shutdown, gRPC, GraphQL, and custom workload support |
 
 ## Development
 
