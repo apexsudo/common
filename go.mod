@@ -5,9 +5,11 @@ go 1.26.4
 require (
 	github.com/99designs/gqlgen v0.17.93
 	github.com/hellofresh/health-go/v5 v5.5.5
+	github.com/jinzhu/configor v1.2.2
 	github.com/oklog/run v1.2.0
 	github.com/prometheus/client_golang v1.23.2
 	github.com/samber/lo v1.53.0
+	github.com/stretchr/testify v1.11.1
 	github.com/swaggo/http-swagger/v2 v2.0.2
 	github.com/vektah/gqlparser/v2 v2.5.35
 	google.golang.org/grpc v1.81.1
@@ -198,7 +200,6 @@ require (
 	github.com/ssgreg/nlreturn/v2 v2.2.1 // indirect
 	github.com/stbenjam/no-sprintf-host-port v0.3.1 // indirect
 	github.com/stretchr/objx v0.5.2 // indirect
-	github.com/stretchr/testify v1.11.1 // indirect
 	github.com/subosito/gotenv v1.4.1 // indirect
 	github.com/swaggo/files/v2 v2.0.0 // indirect
 	github.com/swaggo/swag v1.8.1 // indirect
