@@ -7,6 +7,7 @@ require (
 	github.com/hellofresh/health-go/v5 v5.5.5
 	github.com/jinzhu/configor v1.2.2
 	github.com/oklog/run v1.2.0
+	github.com/oklog/ulid/v2 v2.1.1
 	github.com/prometheus/client_golang v1.23.2
 	github.com/samber/lo v1.53.0
 	github.com/stretchr/testify v1.11.1
