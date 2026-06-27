@@ -1,0 +1,11 @@
+profile: cover.out
+local-prefix: "github.com/apexsudo/common"
+
+threshold:
+  file: 70
+  package: 80
+  total: 95
+
+exclude:
+  paths:
+    - ^vendor/*

@@ -1,0 +1,24 @@
+on:
+  push:
+    branches:
+      - main
+      - develop
+      - beta
+  pull_request:
+
+permissions:
+  contents: read
+  checks: write
+
+jobs:
+  lint:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v3
+        with:
+          go-version-file: go.mod
+      - run: go mod download
+      - uses: golangci/golangci-lint-action@v6
+        with:
+          version: v1.64
