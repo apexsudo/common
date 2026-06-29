@@ -14,7 +14,7 @@ import (
 	"github.com/vektah/gqlparser/v2/ast"
 )
 
-var uiIndexPage = template.Must(template.New("ui").Parse(`<!DOCTYPE html>
+const uiIndexPageHTML = `<!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
@@ -33,7 +33,10 @@ var uiIndexPage = template.Must(template.New("ui").Parse(`<!DOCTYPE html>
       min-height: 100vh;
       gap: 12px;
     }
-    h1 { font-size: 1.1rem; font-weight: 500; color: #888; margin: 0 0 20px; letter-spacing: .05em; text-transform: uppercase; }
+    h1 {
+      font-size: 1.1rem; font-weight: 500; color: #888;
+      margin: 0 0 20px; letter-spacing: .05em; text-transform: uppercase;
+    }
     .cards { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
     a.card {
       display: flex;
@@ -70,7 +73,7 @@ var uiIndexPage = template.Must(template.New("ui").Parse(`<!DOCTYPE html>
     </a>
   </div>
 </body>
-</html>`))
+</html>`
 
 // WithGraphql registers a gqlgen handler at POST|GET /graphql with query
 // caching (LRU 1000 entries) and introspection enabled. Three playground UIs
@@ -94,6 +97,7 @@ func (s *Server) WithGraphql(schema graphql.ExecutableSchema) *Server {
 	s.mux.Handle("/ui/apollo", playground.ApolloSandboxHandler("Apollo Sandbox", "/graphql"))
 	s.mux.Handle("/ui/altair", playground.AltairHandler("Altair", "/graphql", nil))
 
+	uiIndexPage := template.Must(template.New("ui").Parse(uiIndexPageHTML))
 	s.mux.HandleFunc("/ui", func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Content-Type", "text/html; charset=UTF-8")
 		if err := uiIndexPage.Execute(w, nil); err != nil {
